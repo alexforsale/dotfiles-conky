@@ -1,0 +1,167 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil {}:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:nil
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:t todo:t |:t
+#+title: Conky Configuration Files
+#+date: <2025-05-10 Sat>
+#+author: Kristian Alexander P
+#+email: alexforsale@yahoo.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 30.1 (Org mode 9.8-pre)
+#+cite_export:
+#+setupfile: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+HTML_HEAD: <style> #content{max-width:1800px;}</style>
+#+HTML_HEAD: <style> p{max-width:800px;}</style>
+#+HTML_HEAD: <style> li{max-width:800px;}</style>
+* Conky Modules
+** Conky MPRIS
+:PROPERTIES:
+:header-args: :tangle .config/conky/conky-mpris.conf :mkdirp t
+:END:
+#+begin_src lua
+  conky.config = {
+     color0 = '#073642',
+     color1 = '#dc322f',
+     color2 = '#859900',
+     color3 = '#b58900',
+     color4 = '#268bd2',
+     color5 = '#d33682',
+     color6 = '#2aa198',
+     color7 = '#eee8d5',
+     color8 = '#6c7c80',
+     color9 = '#dc322f',
+
+     font = 'FiraCodeNerdFontMono:pixelsize=8',
+     alignment = 'bottom_right',
+     use_xft = true,
+     update_interval = 1,
+     total_run_times = 0,
+     own_window = true,
+     own_window_transparent = true,
+     own_window_type = 'override',
+     own_window_class = 'Conky',
+     own_window_argb_visual = true,
+     own_window_argb_value = 80,
+     double_buffer = true,
+     draw_shades = false,
+     draw_outline = false,
+     draw_borders = false,
+     draw_graph_borders = true,
+     stippled_borders = 0,
+     border_width = 0,
+     xftalpha = 1.0,
+     gap_x = 10,
+     gap_y = 30,
+     text_buffer_size = 512,
+  };
+#+end_src
+
+#+begin_src lua
+  conky.text = [[
+  ${offset 85}${color6}${font pixelsize=8:bold}${exec playerctl metadata --format '{{artist}}'}${font}${color}
+  ${offset 85}${color5}${exec playerctl metadata --format '{{title}}'}${color}
+  ${offset 85}${color8}${exec playerctl metadata --format '{{album}}'}${color}
+  ${offset 85}${color8}${exec playerctl metadata --format '{{xesam:contentCreated}}'}${color}
+  ${offset 85}${color4}────────────────────────────────────────────────────${color}
+  ${offset 85}${color8}${exec playerctl metadata --format '{{status}}'} ${exec playerctl metadata --format '{{duration(position)}}'} / ${exec playerctl metadata --format '{{duration(mpris:length)}}'}${color}
+  ${eval $${image ${exec playerctl metadata mpris:artUrl|sed 's/file:\/\///g'} -s 80x80}}
+  ]];
+#+end_src
+** System Information
+:PROPERTIES:
+:header-args: :tangle .config/conky/conky-system.conf :mkdirp t
+:END:
+#+begin_src lua
+  conky.config = {
+     color0 = '#073642',
+     color1 = '#dc322f',
+     color2 = '#859900',
+     color3 = '#b58900',
+     color4 = '#268bd2',
+     color5 = '#d33682',
+     color6 = '#2aa198',
+     color7 = '#eee8d5',
+     color8 = '#6c7c80',
+     color9 = '#dc322f',
+
+     default_color = '#fdf6e3',
+     font = 'FiraCodeNerdFontMono:pixelsize=8',
+     alignment = 'top_right',
+     use_xft = true,
+     update_interval = 1,
+     total_run_times = 0,
+     own_window = true,
+     own_window_transparent = true,
+     own_window_type = 'override',
+     own_window_class = 'Conky',
+     own_window_argb_visual = true,
+     own_window_argb_value = 255,
+     double_buffer = true,
+     draw_shades = false,
+     draw_outline = false,
+     draw_borders = false,
+     draw_graph_borders = true,
+     stippled_borders = 0,
+     border_width = 0,
+     xftalpha = 1.0,
+     gap_x = 10,
+     gap_y = 100,
+     text_buffer_size = 512,
+  };
+#+end_src
+
+#+begin_src lua
+    conky.text = [[
+  ${color4}$hr${color}
+  ${alignr}${offset 0}${color5}${font pixelsize=10}${nodename}${font}${color}
+  ${alignr}${color8}${tztime}${color}
+  ${alignr}${color8}${sysname} ${machine}${color} - ${exec lsb_release -ds | sed 's/"//g'} ${kernel}
+  ${alignr}${color8}Uptime:${color} ${uptime_short}
+  ${alignr}${color8}Resolution:${color} ${exec xdpyinfo | awk '/dimensions/{print $2}'}
+  ${alignr}${color8}Logged in users:${color} ${user_names}
+  ${color4}$hr${color}
+  ${alignr}${color5}${font pixelsize=10}CPU${font}${color}
+  ${alignr}${color8}CPU Clock Speed:${color}${freq_g} GHz
+  ${alignr}${color8}CPU 0 ${color2}${cpubar cpu0 6, 120}${color}
+  ${alignr}${color8}CPU 1 ${color2}${cpubar cpu1 6, 120}${color}
+  ${alignr}${color8}CPU 2 ${color2}${cpubar cpu2 6, 120}${color}
+  ${alignr}${color8}CPU 3 ${color2}${cpubar cpu3 6, 120}${color}
+  ${color4}$hr${color}
+  ${alignr}${color5}${font pixelsize=10}Processes${font}${color}
+  $alignr ${top name 1} ${color8}PID:${color} ${top pid 1} ${color8}CPU:${color} ${top cpu 1} ${color8}MEM:${color} ${top mem 1}
+  $alignr ${top name 2} ${color8}PID:${color} ${top pid 2} ${color8}CPU:${color} ${top cpu 2} ${color8}MEM:${color} ${top mem 2}
+  $alignr ${top name 3} ${color8}PID:${color} ${top pid 3} ${color8}CPU:${color} ${top cpu 3} ${color8}MEM:${color} ${top mem 3}
+  $alignr ${top name 4} ${color8}PID:${color} ${top pid 4} ${color8}CPU:${color} ${top cpu 4} ${color8}MEM:${color} ${top mem 4}
+  $alignr ${top name 5} ${color8}PID:${color} ${top pid 5} ${color8}CPU:${color} ${top cpu 5} ${color8}MEM:${color} ${top mem 5}
+  ${color4}$hr${color}
+  ${alignr}${color5}${font pixelsize=10}Memory${font}${color}
+  ${alignr}${color8}Ram:${color} ${memperc}%${color2} ${membar 5,120}${color}
+  ${alignr}${mem} / ${memmax}
+  ${alignr}${color8}Swap:${color} ${swapperc}% ${color2}${swapbar 5,120}${color}
+  ${alignr}${swap} / ${swapmax}
+  ${color4}$hr${color}
+  ${alignr}${color5}${font pixelsize=10}Network${font}${color}
+  ${if_up wlp0s20u5}${alignr}${color8}wlp0s20u5${color} Downspeed: ${downspeed wlp0s20u5}/s Upspeed: ${upspeed wlp0s20u5}/s
+  ${alignr}${color8}Bitrate:${color} ${wireless_bitrate wlp0s20u5} ${color8}Channel: ${color}${wireless_channel wlp0s20u5} ${color8}ESSID: ${color} ${wireless_essid wlp0s20u5}$endif
+  ${eval $${if_empty $${iface 1}} $$else $${eval $${if_up ${iface 1}} ${alignr}${color8}${iface 1}${color} Downspeed: ${eval $${downspeed $${iface 1}}}/s Upspeed: ${eval ${upspeed $${iface 1}}}/s$${endif}}$${endif}}
+  ${eval $${if_empty $${iface 2}} $$else $${eval $${if_up ${iface 2}} ${alignr}${color8}${iface 2}${color} Downspeed: ${eval $${downspeed $${iface 2}}}/s Upspeed: ${eval ${upspeed $${iface 2}}}/s$${endif}}$${endif}}
+  ${eval $${if_empty $${iface 3}} $$else $${eval $${if_up ${iface 3}} ${alignr}${color8}${iface 3}${color} Downspeed: ${eval $${downspeed $${iface 3}}}/s Upspeed: ${eval ${upspeed $${iface 3}}}/s$${endif}}$${endif}}
+  ${color4}$hr${color}
+    ]];
+#+end_src
+
+*** Dependencies
+For Archlinux:
+- =xorg-xdpyinfo=
+* Scripts
+:PROPERTIES:
+:header-args: :tangle .local/bin/conky-start
+:END:
+#+begin_src sh :shebang #!/bin/sh :mkdirp t
+  killall -USR1 conky
+  [ -e "${HOME}"/.config/conky/conky-mpris.conf ] && conky -c "${HOME}"/.config/conky/conky-mpris.conf &
+  [ -e "${HOME}"/.config/conky/conky-system.conf ] && conky -c "${HOME}"/.config/conky/conky-system.conf &
+#+end_src
