@@ -145,10 +145,10 @@
   ${color4}$hr${color}
   ${alignr}${color5}${font pixelsize=10}Network${font}${color}
   ${if_up wlp0s20u5}${alignr}${color8}wlp0s20u5${color} Downspeed: ${downspeed wlp0s20u5}/s Upspeed: ${upspeed wlp0s20u5}/s
-  ${alignr}${color8}Bitrate:${color} ${wireless_bitrate wlp0s20u5} ${color8}Channel: ${color}${wireless_channel wlp0s20u5} ${color8}ESSID: ${color} ${wireless_essid wlp0s20u5}$endif
-  ${eval $${if_empty $${iface 1}} $$else $${eval $${if_up ${iface 1}} ${alignr}${color8}${iface 1}${color} Downspeed: ${eval $${downspeed $${iface 1}}}/s Upspeed: ${eval ${upspeed $${iface 1}}}/s$${endif}}$${endif}}
-  ${eval $${if_empty $${iface 2}} $$else $${eval $${if_up ${iface 2}} ${alignr}${color8}${iface 2}${color} Downspeed: ${eval $${downspeed $${iface 2}}}/s Upspeed: ${eval ${upspeed $${iface 2}}}/s$${endif}}$${endif}}
-  ${eval $${if_empty $${iface 3}} $$else $${eval $${if_up ${iface 3}} ${alignr}${color8}${iface 3}${color} Downspeed: ${eval $${downspeed $${iface 3}}}/s Upspeed: ${eval ${upspeed $${iface 3}}}/s$${endif}}$${endif}}
+  ${alignr}${color8}Bitrate:${color} ${wireless_bitrate wlp0s20u5} ${color8}Channel: ${color}${wireless_channel wlp0s20u5} ${color8}ESSID: ${color} ${wireless_essid wlp0s20u5}
+  ${color2}${downspeedgraph wlp0s20u5 32,155 104E8B 0077ff}${color} $alignr${color2}${upspeedgraph wlp0s20u5 32,155 104E8B 0077ff}${color}$endif
+  ${eval $${if_empty $${iface 1}} $$else $${eval $${if_up ${iface 1}} ${alignr}${color8}${iface 1}${color} Downspeed: ${eval $${downspeed $${iface 1}}}/s Upspeed: ${eval ${upspeed $${iface 1}}}/s
+  ${color2}${eval $${downspeedgraph ${iface 1} 32,155 104E8B 0077ff}}${color} $alignr${color2}${eval $${upspeedgraph ${iface 1} 32,155 104E8B 0077ff}${color}}$${endif}}$${endif}}
   ${color4}$hr${color}
     ]];
 #+end_src
