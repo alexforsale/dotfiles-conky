@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-05-12 Mon 13:11 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Conky Configuration Files</title>
+<meta name="author" content="Kristian Alexander P" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<style> #content{max-width:1800px;}</style>
+<style> p{max-width:800px;}</style>
+<style> li{max-width:800px;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Conky Configuration Files</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org62da27b">Conky Modules</a>
+<ul>
+<li><a href="#org4b8331a">Conky MPRIS</a></li>
+<li><a href="#org67960bd">System Information</a>
+<ul>
+<li><a href="#org30c176a">Dependencies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org06efbaf">Scripts</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org62da27b" class="outline-2">
+<h2 id="org62da27b">Conky Modules</h2>
+<div class="outline-text-2" id="text-org62da27b">
+</div>
+<div id="outline-container-org4b8331a" class="outline-3">
+<h3 id="org4b8331a">Conky MPRIS</h3>
+<div class="outline-text-3" id="text-org4b8331a">
+<div class="org-src-container">
+<pre class="src src-lua">conky.config = {
+   color0 = '#073642',
+   color1 = '#dc322f',
+   color2 = '#859900',
+   color3 = '#b58900',
+   color4 = '#268bd2',
+   color5 = '#d33682',
+   color6 = '#2aa198',
+   color7 = '#eee8d5',
+   color8 = '#6c7c80',
+   color9 = '#dc322f',
+
+   font = 'FiraCodeNerdFontMono:pixelsize=8',
+   alignment = 'bottom_right',
+   use_xft = true,
+   update_interval = 1,
+   total_run_times = 0,
+   own_window = true,
+   own_window_transparent = false,
+   own_window_type = 'override',
+   own_window_class = 'Conky',
+   own_window_argb_visual = true,
+   own_window_argb_value = 0,
+   double_buffer = true,
+   draw_shades = false,
+   draw_outline = false,
+   draw_borders = false,
+   draw_graph_borders = true,
+   stippled_borders = 0,
+   border_width = 0,
+   xftalpha = 1.0,
+   gap_x = 10,
+   gap_y = 30,
+   text_buffer_size = 512,
+};
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-lua">conky.text = [[
+${offset 85}${color6}${font pixelsize=8:bold}${exec playerctl metadata --format '{{artist}}'}${font}${color}
+${offset 85}${color5}${exec playerctl metadata --format '{{title}}'}${color}
+${offset 85}${color8}${exec playerctl metadata --format '{{album}}'}${color}
+${offset 85}${color8}${exec playerctl metadata --format '{{xesam:contentCreated}}'}${color}
+${offset 85}${color4}────────────────────────────────────────────────────${color}
+${offset 85}${color8}${exec playerctl metadata --format '{{status}}'} ${exec playerctl metadata --format '{{duration(position)}}'} / ${exec playerctl metadata --format '{{duration(mpris:length)}}'}${color}
+${eval $${image ${exec playerctl metadata mpris:artUrl|sed 's/file:\/\///g'} -s 80x80}}
+]];
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org67960bd" class="outline-3">
+<h3 id="org67960bd">System Information</h3>
+<div class="outline-text-3" id="text-org67960bd">
+<div class="org-src-container">
+<pre class="src src-lua">conky.config = {
+   color0 = '#073642',
+   color1 = '#dc322f',
+   color2 = '#859900',
+   color3 = '#b58900',
+   color4 = '#268bd2',
+   color5 = '#d33682',
+   color6 = '#2aa198',
+   color7 = '#eee8d5',
+   color8 = '#6c7c80',
+   color9 = '#dc322f',
+
+   default_color = '#fdf6e3',
+   font = 'FiraCodeNerdFontMono:pixelsize=8',
+   alignment = 'top_right',
+   use_xft = true,
+   update_interval = 1,
+   total_run_times = 0,
+   own_window = true,
+   own_window_transparent = false,
+   own_window_type = 'override',
+   own_window_class = 'Conky',
+   own_window_argb_visual = true,
+   own_window_argb_value = 0,
+   double_buffer = true,
+   draw_shades = false,
+   draw_outline = false,
+   draw_borders = false,
+   draw_graph_borders = true,
+   stippled_borders = 0,
+   border_width = 0,
+   xftalpha = 1.0,
+   gap_x = 10,
+   gap_y = 110,
+   text_buffer_size = 512,
+};
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-lua">  conky.text = [[
+${color4}$hr${color}
+${alignr}${offset 0}${color5}${font pixelsize=10}${nodename}${font}${color}
+${alignr}${color8}${tztime}${color}
+${alignr}${color8}${sysname} ${machine}${color} - ${exec lsb_release -ds | sed 's/"//g'} ${kernel}
+${alignr}${color8}Uptime:${color} ${uptime_short}
+${alignr}${color8}Resolution:${color} ${exec xdpyinfo | awk '/dimensions/{print $2}'}
+${alignr}${color8}Logged in users:${color} ${user_names}
+${color4}$hr${color}
+${alignr}${color5}${font pixelsize=10}CPU${font}${color}
+${alignr}${color8}CPU Clock Speed:${color}${freq_g} GHz
+${alignr}${color8}CPU 0 ${color2}${cpubar cpu0 6, 120}${color}
+${alignr}${color8}CPU 1 ${color2}${cpubar cpu1 6, 120}${color}
+${alignr}${color8}CPU 2 ${color2}${cpubar cpu2 6, 120}${color}
+${alignr}${color8}CPU 3 ${color2}${cpubar cpu3 6, 120}${color}
+${color4}$hr${color}
+${alignr}${color5}${font pixelsize=10}Processes${font}${color}
+$alignr ${top name 1} ${color8}PID:${color} ${top pid 1} ${color8}CPU:${color} ${top cpu 1} ${color8}MEM:${color} ${top mem 1}
+$alignr ${top name 2} ${color8}PID:${color} ${top pid 2} ${color8}CPU:${color} ${top cpu 2} ${color8}MEM:${color} ${top mem 2}
+$alignr ${top name 3} ${color8}PID:${color} ${top pid 3} ${color8}CPU:${color} ${top cpu 3} ${color8}MEM:${color} ${top mem 3}
+$alignr ${top name 4} ${color8}PID:${color} ${top pid 4} ${color8}CPU:${color} ${top cpu 4} ${color8}MEM:${color} ${top mem 4}
+$alignr ${top name 5} ${color8}PID:${color} ${top pid 5} ${color8}CPU:${color} ${top cpu 5} ${color8}MEM:${color} ${top mem 5}
+${color4}$hr${color}
+${alignr}${color5}${font pixelsize=10}Memory${font}${color}
+${alignr}${color8}Ram:${color} ${memperc}%${color2} ${membar 5,120}${color}
+${alignr}${mem} / ${memmax}
+${alignr}${color8}Swap:${color} ${swapperc}% ${color2}${swapbar 5,120}${color}
+${alignr}${swap} / ${swapmax}
+${color4}$hr${color}
+${alignr}${color5}${font pixelsize=10}Network${font}${color}
+${if_up wlp0s20u5}${alignr}${color8}wlp0s20u5${color} Downspeed: ${downspeed wlp0s20u5}/s Upspeed: ${upspeed wlp0s20u5}/s
+${alignr}${color8}Bitrate:${color} ${wireless_bitrate wlp0s20u5} ${color8}Channel: ${color}${wireless_channel wlp0s20u5} ${color8}ESSID: ${color} ${wireless_essid wlp0s20u5}
+${color2}${downspeedgraph wlp0s20u5 32,155 104E8B 0077ff}${color} $alignr${color2}${upspeedgraph wlp0s20u5 32,155 104E8B 0077ff}${color}${endif}
+${eval $${if_empty $${iface 1}} $$else $${eval $${if_up ${iface 1}} ${alignr}${color8}${iface 1}${color} Downspeed: ${eval $${downspeed $${iface 1}}}/s Upspeed: ${eval ${upspeed $${iface 1}}}/s
+${color2}${eval $${downspeedgraph ${iface 1} 32,155 104E8B 0077ff}}${color} $alignr${color2}${eval $${upspeedgraph ${iface 1} 32,155 104E8B 0077ff}}${color}$${endif}}$${endif}}
+${color4}$hr${color}
+  ]];
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org30c176a" class="outline-4">
+<h4 id="org30c176a">Dependencies</h4>
+<div class="outline-text-4" id="text-org30c176a">
+<p>
+TBA
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org06efbaf" class="outline-2">
+<h2 id="org06efbaf">Scripts</h2>
+<div class="outline-text-2" id="text-org06efbaf">
+<div class="org-src-container">
+<pre class="src src-sh">killall -USR1 conky
+[ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris.conf ] &amp;&amp; conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris.conf &amp;
+[ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system.conf ] &amp;&amp; conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system.conf &amp;
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2025-05-10 Sat 00:00</p>
+<p class="author">Author: Kristian Alexander P</p>
+<p class="date">Created: 2025-05-12 Mon 13:11</p>
+</div>
+</body>
+</html>
