@@ -148,7 +148,7 @@
   ${alignr}${color8}Bitrate:${color} ${wireless_bitrate wlp0s20u5} ${color8}Channel: ${color}${wireless_channel wlp0s20u5} ${color8}ESSID: ${color} ${wireless_essid wlp0s20u5}
   ${color2}${downspeedgraph wlp0s20u5 32,155 104E8B 0077ff}${color} $alignr${color2}${upspeedgraph wlp0s20u5 32,155 104E8B 0077ff}${color}$endif
   ${eval $${if_empty $${iface 1}} $$else $${eval $${if_up ${iface 1}} ${alignr}${color8}${iface 1}${color} Downspeed: ${eval $${downspeed $${iface 1}}}/s Upspeed: ${eval ${upspeed $${iface 1}}}/s
-  ${color2}${eval $${downspeedgraph ${iface 1} 32,155 104E8B 0077ff}}${color} $alignr${color2}${eval $${upspeedgraph ${iface 1} 32,155 104E8B 0077ff}${color}}$${endif}}$${endif}}
+  ${color2}${eval $${downspeedgraph ${iface 1} 32,155 104E8B 0077ff}}${color} $alignr${color2}${eval $${upspeedgraph ${iface 1} 32,155 104E8B 0077ff}}${color}$${endif}}$${endif}}
   ${color4}$hr${color}
     ]];
 #+end_src
