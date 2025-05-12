@@ -154,8 +154,7 @@
 #+end_src
 
 *** Dependencies
-For Archlinux:
-- =xorg-xdpyinfo=
+TBA
 * Scripts
 :PROPERTIES:
 :header-args: :tangle .local/bin/conky-start
