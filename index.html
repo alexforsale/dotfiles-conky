@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-12 Mon 13:13 -->
+<!-- 2025-05-16 Fri 13:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Conky Configuration Files</title>
@@ -28,27 +28,33 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1c5218f">Conky Modules</a>
+<li><a href="#orgb77985f">Conky Modules</a>
 <ul>
-<li><a href="#orga45b3a7">Conky MPRIS</a></li>
-<li><a href="#org9987be5">System Information</a>
+<li><a href="#org128cb69">Conky MPRIS</a></li>
+<li><a href="#org7afaf12">System Information</a>
 <ul>
-<li><a href="#org8ba3b33">Dependencies</a></li>
+<li><a href="#orgf7ca393">Dependencies</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org48645d7">Scripts</a></li>
+<li><a href="#org8a5f211">Scripts</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1c5218f" class="outline-2">
-<h2 id="org1c5218f">Conky Modules</h2>
-<div class="outline-text-2" id="text-org1c5218f">
+<div id="outline-container-orgb77985f" class="outline-2">
+<h2 id="orgb77985f">Conky Modules</h2>
+<div class="outline-text-2" id="text-orgb77985f">
 </div>
-<div id="outline-container-orga45b3a7" class="outline-3">
-<h3 id="orga45b3a7">Conky MPRIS</h3>
-<div class="outline-text-3" id="text-orga45b3a7">
+<div id="outline-container-org128cb69" class="outline-3">
+<h3 id="org128cb69">Conky MPRIS</h3>
+<div class="outline-text-3" id="text-org128cb69">
+
+<div id="orgd823d44" class="figure">
+<p><a href="./assets/img/conky-mpris-2025-05-16_20-28.png"><img src="./assets/img/conky-mpris-2025-05-16_20-28.png/" alt="" /></a>
+</p>
+<p><span class="figure-number">Figure 1: </span>conky MPRIS</p>
+</div>
 <div class="org-src-container">
 <pre class="src src-lua">conky.config = {
    color0 = '#073642',
@@ -102,9 +108,15 @@ ${eval $${image ${exec playerctl metadata mpris:artUrl|sed 's/file:\/\///g'} -s 
 </div>
 </div>
 </div>
-<div id="outline-container-org9987be5" class="outline-3">
-<h3 id="org9987be5">System Information</h3>
-<div class="outline-text-3" id="text-org9987be5">
+<div id="outline-container-org7afaf12" class="outline-3">
+<h3 id="org7afaf12">System Information</h3>
+<div class="outline-text-3" id="text-org7afaf12">
+
+<div id="org0b35620" class="figure">
+<p><a href="./assets/img/conky-system-2025-05-16_20-28.png"><img src="./assets/img/conky-system-2025-05-16_20-28.png" alt="conky-system-2025-05-16_20-28.png" /></a>
+</p>
+<p><span class="figure-number">Figure 2: </span>conky system information</p>
+</div>
 <div class="org-src-container">
 <pre class="src src-lua">conky.config = {
    color0 = '#073642',
@@ -187,9 +199,9 @@ ${color4}$hr${color}
 </div>
 </div>
 
-<div id="outline-container-org8ba3b33" class="outline-4">
-<h4 id="org8ba3b33">Dependencies</h4>
-<div class="outline-text-4" id="text-org8ba3b33">
+<div id="outline-container-orgf7ca393" class="outline-4">
+<h4 id="orgf7ca393">Dependencies</h4>
+<div class="outline-text-4" id="text-orgf7ca393">
 <p>
 TBA
 </p>
@@ -197,9 +209,9 @@ TBA
 </div>
 </div>
 </div>
-<div id="outline-container-org48645d7" class="outline-2">
-<h2 id="org48645d7">Scripts</h2>
-<div class="outline-text-2" id="text-org48645d7">
+<div id="outline-container-org8a5f211" class="outline-2">
+<h2 id="org8a5f211">Scripts</h2>
+<div class="outline-text-2" id="text-org8a5f211">
 <div class="org-src-container">
 <pre class="src src-sh">killall -USR1 conky
 [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris.conf ] &amp;&amp; conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris.conf &amp;
@@ -212,7 +224,7 @@ TBA
 <div id="postamble" class="status">
 <p class="date">Date: 2025-05-10 Sat 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2025-05-12 Mon 13:13</p>
+<p class="date">Created: 2025-05-16 Fri 13:31</p>
 </div>
 </body>
 </html>
