@@ -163,6 +163,7 @@ TBA
 :PROPERTIES:
 :header-args: :tangle .local/bin/conky-start
 :END:
+This script will be called from the window manager startup. As most of my scripts, the path will be =~/.local/bin/conky-start~=.
 #+begin_src sh :shebang #!/bin/sh :mkdirp t
   killall -USR1 conky
   [ -e "${HOME}"/.config/conky/conky-mpris.conf ] && conky -c "${HOME}"/.config/conky/conky-mpris.conf &
