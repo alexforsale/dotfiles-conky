@@ -21,6 +21,8 @@
 :PROPERTIES:
 :header-args: :tangle .config/conky/conky-mpris.conf :mkdirp t
 :END:
+#+caption: conky MPRIS
+[[./assets/img/conky-mpris-2025-05-16_20-28.png][file:./assets/img/conky-mpris-2025-05-16_20-28.png/]]
 #+begin_src lua
   conky.config = {
      color0 = '#073642',
@@ -74,6 +76,8 @@
 :PROPERTIES:
 :header-args: :tangle .config/conky/conky-system.conf :mkdirp t
 :END:
+#+caption: conky system information
+[[./assets/img/conky-system-2025-05-16_20-28.png][file:./assets/img/conky-system-2025-05-16_20-28.png]]
 #+begin_src lua
   conky.config = {
      color0 = '#073642',
