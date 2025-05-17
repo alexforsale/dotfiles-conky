@@ -17,12 +17,15 @@
 #+HTML_HEAD: <style> p{max-width:800px;}</style>
 #+HTML_HEAD: <style> li{max-width:800px;}</style>
 * Conky Modules
+Conky is highly customizable, with a bit of /Lua/ knowledge you can create an intricate conky display. As usual, I start small, then build this up eventually.
 ** Conky MPRIS
 :PROPERTIES:
 :header-args: :tangle .config/conky/conky-mpris.conf :mkdirp t
 :END:
 #+caption: conky MPRIS
 [[./assets/img/conky-mpris-2025-05-16_20-28.png][file:./assets/img/conky-mpris-2025-05-16_20-28.png]]
+
+This is just a simple [[https://wiki.archlinux.org/title/MPRIS][MPRIS]] status using /conky/. This will works with most media player out of the box, even for YouTube. MPD will need [[https://github.com/natsukagami/mpd-mpris][mpd-mpris]], since MPD doesn't support it. This will need [[https://github.com/altdesktop/playerctl][playerctl]] for querying metadata.
 #+begin_src lua
   conky.config = {
      color0 = '#073642',
@@ -78,6 +81,8 @@
 :END:
 #+caption: conky system information
 [[./assets/img/conky-system-2025-05-16_20-28.png][file:./assets/img/conky-system-2025-05-16_20-28.png]]
+
+I mostly use only builtin function provided by /conky/ itself rather than relying on other packages, the only external packages (beside the conky dependency) is [[https://archlinux.org/packages/extra/x86_64/xorg-xdpyinfo/][xorg-xdpyinfo]] (part of xorg I think?).
 #+begin_src lua
   conky.config = {
      color0 = '#073642',
@@ -158,7 +163,8 @@
 #+end_src
 
 *** Dependencies
-TBA
+- playerctl :: for media.
+- xdpyinfo :: for resolution.
 * Scripts
 :PROPERTIES:
 :header-args: :tangle .local/bin/conky-start
