@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-17 Sat 07:10 -->
+<!-- 2025-05-17 Sat 07:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Conky Configuration Files</title>
@@ -28,33 +28,40 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb23f1ec">Conky Modules</a>
+<li><a href="#org7e9ba34">Conky Modules</a>
 <ul>
-<li><a href="#orgab1f0f7">Conky MPRIS</a></li>
-<li><a href="#orgb1f9702">System Information</a>
+<li><a href="#orga2e86fa">Conky MPRIS</a></li>
+<li><a href="#orgc5e5236">System Information</a>
 <ul>
-<li><a href="#org518d302">Dependencies</a></li>
+<li><a href="#org3b0dcbc">Dependencies</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgde34be9">Scripts</a></li>
+<li><a href="#orge4c452f">Scripts</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb23f1ec" class="outline-2">
-<h2 id="orgb23f1ec">Conky Modules</h2>
-<div class="outline-text-2" id="text-orgb23f1ec">
+<div id="outline-container-org7e9ba34" class="outline-2">
+<h2 id="org7e9ba34">Conky Modules</h2>
+<div class="outline-text-2" id="text-org7e9ba34">
+<p>
+Conky is highly customizable, with a bit of <i>Lua</i> knowledge you can create an intricate conky display. As usual, I start small, then build this up eventually.
+</p>
 </div>
-<div id="outline-container-orgab1f0f7" class="outline-3">
-<h3 id="orgab1f0f7">Conky MPRIS</h3>
-<div class="outline-text-3" id="text-orgab1f0f7">
+<div id="outline-container-orga2e86fa" class="outline-3">
+<h3 id="orga2e86fa">Conky MPRIS</h3>
+<div class="outline-text-3" id="text-orga2e86fa">
 
-<div id="org8f2e2b7" class="figure">
+<div id="orga3b320f" class="figure">
 <p><a href="./assets/img/conky-mpris-2025-05-16_20-28.png"><img src="./assets/img/conky-mpris-2025-05-16_20-28.png" alt="conky-mpris-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 1: </span>conky MPRIS</p>
 </div>
+
+<p>
+This is just a simple <a href="https://wiki.archlinux.org/title/MPRIS">MPRIS</a> status using <i>conky</i>. This will works with most media player out of the box, even for YouTube. MPD will need <a href="https://github.com/natsukagami/mpd-mpris">mpd-mpris</a>, since MPD doesn't support it. This will need <a href="https://github.com/altdesktop/playerctl">playerctl</a> for querying metadata.
+</p>
 <div class="org-src-container">
 <pre class="src src-lua">conky.config = {
    color0 = '#073642',
@@ -108,15 +115,19 @@ ${eval $${image ${exec playerctl metadata mpris:artUrl|sed 's/file:\/\///g'} -s 
 </div>
 </div>
 </div>
-<div id="outline-container-orgb1f9702" class="outline-3">
-<h3 id="orgb1f9702">System Information</h3>
-<div class="outline-text-3" id="text-orgb1f9702">
+<div id="outline-container-orgc5e5236" class="outline-3">
+<h3 id="orgc5e5236">System Information</h3>
+<div class="outline-text-3" id="text-orgc5e5236">
 
-<div id="orgbec706b" class="figure">
+<div id="org158c972" class="figure">
 <p><a href="./assets/img/conky-system-2025-05-16_20-28.png"><img src="./assets/img/conky-system-2025-05-16_20-28.png" alt="conky-system-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 2: </span>conky system information</p>
 </div>
+
+<p>
+I mostly use only builtin function provided by <i>conky</i> itself rather than relying on other packages, the only external packages (beside the conky dependency) is <a href="https://archlinux.org/packages/extra/x86_64/xorg-xdpyinfo/">xorg-xdpyinfo</a> (part of xorg I think?).
+</p>
 <div class="org-src-container">
 <pre class="src src-lua">conky.config = {
    color0 = '#073642',
@@ -199,19 +210,20 @@ ${color4}$hr${color}
 </div>
 </div>
 
-<div id="outline-container-org518d302" class="outline-4">
-<h4 id="org518d302">Dependencies</h4>
-<div class="outline-text-4" id="text-org518d302">
-<p>
-TBA
-</p>
+<div id="outline-container-org3b0dcbc" class="outline-4">
+<h4 id="org3b0dcbc">Dependencies</h4>
+<div class="outline-text-4" id="text-org3b0dcbc">
+<dl class="org-dl">
+<dt>playerctl</dt><dd>for media.</dd>
+<dt>xdpyinfo</dt><dd>for resolution.</dd>
+</dl>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-orgde34be9" class="outline-2">
-<h2 id="orgde34be9">Scripts</h2>
-<div class="outline-text-2" id="text-orgde34be9">
+<div id="outline-container-orge4c452f" class="outline-2">
+<h2 id="orge4c452f">Scripts</h2>
+<div class="outline-text-2" id="text-orge4c452f">
 <p>
 This script will be called from the window manager startup. As most of my scripts, the path will be <code>~/.local/bin/conky-start~</code>.
 </p>
@@ -227,7 +239,7 @@ This script will be called from the window manager startup. As most of my script
 <div id="postamble" class="status">
 <p class="date">Date: 2025-05-10 Sat 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2025-05-17 Sat 07:10</p>
+<p class="date">Created: 2025-05-17 Sat 07:24</p>
 </div>
 </body>
 </html>
