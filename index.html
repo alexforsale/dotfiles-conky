@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-17 Sat 07:24 -->
+<!-- 2025-05-28 Wed 08:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Conky Configuration Files</title>
@@ -28,32 +28,38 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7e9ba34">Conky Modules</a>
+<li><a href="#orgb635b20">Conky Modules</a>
 <ul>
-<li><a href="#orga2e86fa">Conky MPRIS</a></li>
-<li><a href="#orgc5e5236">System Information</a>
+<li><a href="#org6f32cde">Conky MPRIS</a></li>
+<li><a href="#org3898573">System Information</a>
 <ul>
-<li><a href="#org3b0dcbc">Dependencies</a></li>
+<li><a href="#org4e7e4ce">Dependencies</a></li>
+</ul>
+</li>
+<li><a href="#orga3e8cc3">Host specific configuration</a>
+<ul>
+<li><a href="#org9dd3e66">ARCH-PEKAYON</a></li>
+<li><a href="#org2d38116">Dependencies</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orge4c452f">Scripts</a></li>
+<li><a href="#orgcd73ac9">Scripts</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7e9ba34" class="outline-2">
-<h2 id="org7e9ba34">Conky Modules</h2>
-<div class="outline-text-2" id="text-org7e9ba34">
+<div id="outline-container-orgb635b20" class="outline-2">
+<h2 id="orgb635b20">Conky Modules</h2>
+<div class="outline-text-2" id="text-orgb635b20">
 <p>
 Conky is highly customizable, with a bit of <i>Lua</i> knowledge you can create an intricate conky display. As usual, I start small, then build this up eventually.
 </p>
 </div>
-<div id="outline-container-orga2e86fa" class="outline-3">
-<h3 id="orga2e86fa">Conky MPRIS</h3>
-<div class="outline-text-3" id="text-orga2e86fa">
+<div id="outline-container-org6f32cde" class="outline-3">
+<h3 id="org6f32cde">Conky MPRIS</h3>
+<div class="outline-text-3" id="text-org6f32cde">
 
-<div id="orga3b320f" class="figure">
+<div id="org0f11bea" class="figure">
 <p><a href="./assets/img/conky-mpris-2025-05-16_20-28.png"><img src="./assets/img/conky-mpris-2025-05-16_20-28.png" alt="conky-mpris-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 1: </span>conky MPRIS</p>
@@ -115,11 +121,11 @@ ${eval $${image ${exec playerctl metadata mpris:artUrl|sed 's/file:\/\///g'} -s 
 </div>
 </div>
 </div>
-<div id="outline-container-orgc5e5236" class="outline-3">
-<h3 id="orgc5e5236">System Information</h3>
-<div class="outline-text-3" id="text-orgc5e5236">
+<div id="outline-container-org3898573" class="outline-3">
+<h3 id="org3898573">System Information</h3>
+<div class="outline-text-3" id="text-org3898573">
 
-<div id="org158c972" class="figure">
+<div id="org3b02063" class="figure">
 <p><a href="./assets/img/conky-system-2025-05-16_20-28.png"><img src="./assets/img/conky-system-2025-05-16_20-28.png" alt="conky-system-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 2: </span>conky system information</p>
@@ -210,9 +216,197 @@ ${color4}$hr${color}
 </div>
 </div>
 
-<div id="outline-container-org3b0dcbc" class="outline-4">
-<h4 id="org3b0dcbc">Dependencies</h4>
-<div class="outline-text-4" id="text-org3b0dcbc">
+<div id="outline-container-org4e7e4ce" class="outline-4">
+<h4 id="org4e7e4ce">Dependencies</h4>
+<div class="outline-text-4" id="text-org4e7e4ce">
+<dl class="org-dl">
+<dt>playerctl</dt><dd>for media.</dd>
+<dt>xdpyinfo</dt><dd>for resolution.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div id="outline-container-orga3e8cc3" class="outline-3">
+<h3 id="orga3e8cc3">Host specific configuration</h3>
+<div class="outline-text-3" id="text-orga3e8cc3">
+</div>
+<div id="outline-container-org9dd3e66" class="outline-4">
+<h4 id="org9dd3e66">ARCH-PEKAYON</h4>
+<div class="outline-text-4" id="text-org9dd3e66">
+<p>
+This is my main PC at home.
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org6699994"></a>Conky MPRIS<br />
+<div class="outline-text-5" id="text-org6699994">
+
+<div id="orgf6967c0" class="figure">
+<p><a href="./assets/img/conky-mpris-2025-05-16_20-28.png"><img src="./assets/img/conky-mpris-2025-05-16_20-28.png" alt="conky-mpris-2025-05-16_20-28.png" /></a>
+</p>
+<p><span class="figure-number">Figure 3: </span>conky MPRIS</p>
+</div>
+
+<p>
+This is just a simple <a href="https://wiki.archlinux.org/title/MPRIS">MPRIS</a> status using <i>conky</i>. This will works with most media player out of the box, even for YouTube. MPD will need <a href="https://github.com/natsukagami/mpd-mpris">mpd-mpris</a>, since MPD doesn't support it. This will need <a href="https://github.com/altdesktop/playerctl">playerctl</a> for querying metadata.
+</p>
+<div class="org-src-container">
+<pre class="src src-lua">conky.config = {
+   color0 = '#073642',
+   color1 = '#dc322f',
+   color2 = '#859900',
+   color3 = '#b58900',
+   color4 = '#268bd2',
+   color5 = '#d33682',
+   color6 = '#2aa198',
+   color7 = '#eee8d5',
+   color8 = '#6c7c80',
+   color9 = '#dc322f',
+
+   font = 'FiraCodeNerdFontMono:pixelsize=8',
+   alignment = 'bottom_right',
+   use_xft = true,
+   update_interval = 1,
+   total_run_times = 0,
+   own_window = true,
+   own_window_transparent = false,
+   own_window_type = 'override',
+   own_window_class = 'Conky',
+   own_window_argb_visual = true,
+   own_window_argb_value = 0,
+   double_buffer = true,
+   draw_shades = false,
+   draw_outline = false,
+   draw_borders = false,
+   draw_graph_borders = true,
+   stippled_borders = 0,
+   border_width = 0,
+   xftalpha = 1.0,
+   gap_x = 10,
+   gap_y = 30,
+   text_buffer_size = 512,
+};
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-lua">conky.text = [[
+${offset 85}${color6}${font pixelsize=8:bold}${exec playerctl metadata --format '{{artist}}'}${font}${color}
+${offset 85}${color5}${exec playerctl metadata --format '{{title}}'}${color}
+${offset 85}${color8}${exec playerctl metadata --format '{{album}}'}${color}
+${offset 85}${color8}${exec playerctl metadata --format '{{xesam:contentCreated}}'}${color}
+${offset 85}${color4}────────────────────────────────────────────────────${color}
+${offset 85}${color8}${exec playerctl metadata --format '{{status}}'} ${exec playerctl metadata --format '{{duration(position)}}'} / ${exec playerctl metadata --format '{{duration(mpris:length)}}'}${color}
+${eval $${image ${exec playerctl metadata mpris:artUrl|sed 's/file:\/\///g'} -s 80x80}}
+]];
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgde42e1d"></a>System Information<br />
+<div class="outline-text-5" id="text-orgde42e1d">
+
+<div id="orgbf42893" class="figure">
+<p><a href="./assets/img/conky-system-2025-05-16_20-28.png"><img src="./assets/img/conky-system-2025-05-16_20-28.png" alt="conky-system-2025-05-16_20-28.png" /></a>
+</p>
+<p><span class="figure-number">Figure 4: </span>conky system information</p>
+</div>
+
+<p>
+I mostly use only builtin function provided by <i>conky</i> itself rather than relying on other packages, the only external packages (beside the conky dependency) is <a href="https://archlinux.org/packages/extra/x86_64/xorg-xdpyinfo/">xorg-xdpyinfo</a> (part of xorg I think?).
+</p>
+<div class="org-src-container">
+<pre class="src src-lua">conky.config = {
+   color0 = '#073642',
+   color1 = '#dc322f',
+   color2 = '#859900',
+   color3 = '#b58900',
+   color4 = '#268bd2',
+   color5 = '#d33682',
+   color6 = '#2aa198',
+   color7 = '#eee8d5',
+   color8 = '#6c7c80',
+   color9 = '#dc322f',
+
+   default_color = '#fdf6e3',
+   font = 'FiraCodeNerdFontMono:pixelsize=8',
+   alignment = 'top_right',
+   use_xft = true,
+   update_interval = 1,
+   total_run_times = 0,
+   own_window = true,
+   own_window_transparent = false,
+   own_window_type = 'override',
+   own_window_class = 'Conky',
+   own_window_argb_visual = true,
+   own_window_argb_value = 0,
+   double_buffer = true,
+   draw_shades = false,
+   draw_outline = false,
+   draw_borders = false,
+   draw_graph_borders = true,
+   stippled_borders = 0,
+   border_width = 0,
+   xftalpha = 1.0,
+   gap_x = 10,
+   gap_y = 110,
+   text_buffer_size = 512,
+};
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-lua">  conky.text = [[
+${color4}$hr${color}
+${alignr}${offset 0}${color5}${font pixelsize=10}${nodename}${font}${color}
+${alignr}${color8}${tztime}${color}
+${alignr}${color8}${sysname} ${machine}${color} - ${exec lsb_release -ds | sed 's/"//g'} ${kernel}
+${alignr}${color8}Uptime:${color} ${uptime_short}
+${alignr}${color8}Resolution:${color} ${exec xdpyinfo | awk '/dimensions/{print $2}'}
+${alignr}${color8}Logged in users:${color} ${user_names}
+${color4}$hr${color}
+${alignr}${color5}${font pixelsize=10}CPU${font}${color}
+${alignr}${color8}CPU Clock Speed:${color}${freq_g} GHz
+${alignr}${color8}CPU 0 ${color2}${cpubar cpu0 6, 120}${color}
+${alignr}${color8}CPU 1 ${color2}${cpubar cpu1 6, 120}${color}
+${alignr}${color8}CPU 2 ${color2}${cpubar cpu2 6, 120}${color}
+${alignr}${color8}CPU 3 ${color2}${cpubar cpu3 6, 120}${color}
+${color4}$hr${color}
+${alignr}${color5}${font pixelsize=10}Processes${font}${color}
+$alignr ${top name 1} ${color8}PID:${color} ${top pid 1} ${color8}CPU:${color} ${top cpu 1} ${color8}MEM:${color} ${top mem 1}
+$alignr ${top name 2} ${color8}PID:${color} ${top pid 2} ${color8}CPU:${color} ${top cpu 2} ${color8}MEM:${color} ${top mem 2}
+$alignr ${top name 3} ${color8}PID:${color} ${top pid 3} ${color8}CPU:${color} ${top cpu 3} ${color8}MEM:${color} ${top mem 3}
+$alignr ${top name 4} ${color8}PID:${color} ${top pid 4} ${color8}CPU:${color} ${top cpu 4} ${color8}MEM:${color} ${top mem 4}
+$alignr ${top name 5} ${color8}PID:${color} ${top pid 5} ${color8}CPU:${color} ${top cpu 5} ${color8}MEM:${color} ${top mem 5}
+${color4}$hr${color}
+${alignr}${color5}${font pixelsize=10}Memory${font}${color}
+${alignr}${color8}Ram:${color} ${memperc}%${color2} ${membar 5,120}${color}
+${alignr}${mem} / ${memmax}
+${alignr}${color8}Swap:${color} ${swapperc}% ${color2}${swapbar 5,120}${color}
+${alignr}${swap} / ${swapmax}
+${color4}$hr${color}
+${alignr}${color5}${font pixelsize=10}Network${font}${color}
+${if_up wlp0s20u5}${alignr}${color8}wlp0s20u5${color} Downspeed: ${downspeed wlp0s20u5}/s Upspeed: ${upspeed wlp0s20u5}/s
+${alignr}${color8}Bitrate:${color} ${wireless_bitrate wlp0s20u5} ${color8}Channel: ${color}${wireless_channel wlp0s20u5} ${color8}ESSID: ${color} ${wireless_essid wlp0s20u5}
+${color2}${downspeedgraph wlp0s20u5 32,155 104E8B 0077ff}${color} $alignr${color2}${upspeedgraph wlp0s20u5 32,155 104E8B 0077ff}${color}${endif}
+${if_existing /proc/net/route enp2s0}${alignr}${color8}enp2s0 Downspeed: ${downspeed enp2s0}/s Upspeed: ${upspeed enp2s0}${endif}
+${if_existing /proc/net/route enp2s0}${color2}${downspeedgraph enp2s0 32,155 104E8B 0077ff}${color} $alignr${color2}${upspeedgraph enp2s0 32,155 104E8B 0077ff}${color}${endif}
+${if_existing /proc/net/route enp3s0}${alignr}${color8}enp3s0 Downspeed: ${downspeed enp3s0}/s Upspeed: ${upspeed enp3s0}${endif}
+${if_existing /proc/net/route enp3s0}${color2}${downspeedgraph enp3s0 32,155 104E8B 0077ff}${color} $alignr${color2}${upspeedgraph enp3s0 32,155 104E8B 0077ff}${color}${endif}
+${if_existing /proc/net/route enp4s0}${alignr}${color8}enp4s0 Downspeed: ${downspeed enp4s0}/s Upspeed: ${upspeed enp4s0}${endif}
+${if_existing /proc/net/route enp4s0}${color2}${downspeedgraph enp4s0 32,155 104E8B 0077ff}${color} $alignr${color2}${upspeedgraph enp4s0 32,155 104E8B 0077ff}${color}${endif}
+${color4}$hr${color}
+  ]];
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org2d38116" class="outline-4">
+<h4 id="org2d38116">Dependencies</h4>
+<div class="outline-text-4" id="text-org2d38116">
 <dl class="org-dl">
 <dt>playerctl</dt><dd>for media.</dd>
 <dt>xdpyinfo</dt><dd>for resolution.</dd>
@@ -221,16 +415,24 @@ ${color4}$hr${color}
 </div>
 </div>
 </div>
-<div id="outline-container-orge4c452f" class="outline-2">
-<h2 id="orge4c452f">Scripts</h2>
-<div class="outline-text-2" id="text-orge4c452f">
+
+<div id="outline-container-orgcd73ac9" class="outline-2">
+<h2 id="orgcd73ac9">Scripts</h2>
+<div class="outline-text-2" id="text-orgcd73ac9">
 <p>
 This script will be called from the window manager startup. As most of my scripts, the path will be <code>~/.local/bin/conky-start~</code>.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">killall -USR1 conky
-[ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris.conf ] &amp;&amp; conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris.conf &amp;
-[ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system.conf ] &amp;&amp; conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system.conf &amp;
+
+<span style="color: #4169e1;">if</span> [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>.conf ] &amp;&amp;
+       [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>.conf ]; <span style="color: #4169e1;">then</span>
+    conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>.conf &amp;
+    conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>.conf &amp;
+<span style="color: #4169e1;">else</span>
+    [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris.conf ] &amp;&amp; conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris.conf &amp;
+    [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system.conf ] &amp;&amp; conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system.conf &amp;
+<span style="color: #4169e1;">fi</span>
 </pre>
 </div>
 </div>
@@ -239,7 +441,7 @@ This script will be called from the window manager startup. As most of my script
 <div id="postamble" class="status">
 <p class="date">Date: 2025-05-10 Sat 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2025-05-17 Sat 07:24</p>
+<p class="date">Created: 2025-05-28 Wed 08:20</p>
 </div>
 </body>
 </html>
