@@ -165,6 +165,161 @@ I mostly use only builtin function provided by /conky/ itself rather than relyin
 *** Dependencies
 - playerctl :: for media.
 - xdpyinfo :: for resolution.
+** Host specific configuration
+*** ARCH-PEKAYON
+This is my main PC at home.
+**** Conky MPRIS
+:PROPERTIES:
+:header-args: :tangle .config/conky/conky-mpris-ARCH-PEKAYON.conf :mkdirp t
+:END:
+#+caption: conky MPRIS
+[[./assets/img/conky-mpris-2025-05-16_20-28.png][file:./assets/img/conky-mpris-2025-05-16_20-28.png]]
+
+This is just a simple [[https://wiki.archlinux.org/title/MPRIS][MPRIS]] status using /conky/. This will works with most media player out of the box, even for YouTube. MPD will need [[https://github.com/natsukagami/mpd-mpris][mpd-mpris]], since MPD doesn't support it. This will need [[https://github.com/altdesktop/playerctl][playerctl]] for querying metadata.
+#+begin_src lua
+  conky.config = {
+     color0 = '#073642',
+     color1 = '#dc322f',
+     color2 = '#859900',
+     color3 = '#b58900',
+     color4 = '#268bd2',
+     color5 = '#d33682',
+     color6 = '#2aa198',
+     color7 = '#eee8d5',
+     color8 = '#6c7c80',
+     color9 = '#dc322f',
+
+     font = 'FiraCodeNerdFontMono:pixelsize=8',
+     alignment = 'bottom_right',
+     use_xft = true,
+     update_interval = 1,
+     total_run_times = 0,
+     own_window = true,
+     own_window_transparent = false,
+     own_window_type = 'override',
+     own_window_class = 'Conky',
+     own_window_argb_visual = true,
+     own_window_argb_value = 0,
+     double_buffer = true,
+     draw_shades = false,
+     draw_outline = false,
+     draw_borders = false,
+     draw_graph_borders = true,
+     stippled_borders = 0,
+     border_width = 0,
+     xftalpha = 1.0,
+     gap_x = 10,
+     gap_y = 30,
+     text_buffer_size = 512,
+  };
+#+end_src
+
+#+begin_src lua
+  conky.text = [[
+  ${offset 85}${color6}${font pixelsize=8:bold}${exec playerctl metadata --format '{{artist}}'}${font}${color}
+  ${offset 85}${color5}${exec playerctl metadata --format '{{title}}'}${color}
+  ${offset 85}${color8}${exec playerctl metadata --format '{{album}}'}${color}
+  ${offset 85}${color8}${exec playerctl metadata --format '{{xesam:contentCreated}}'}${color}
+  ${offset 85}${color4}────────────────────────────────────────────────────${color}
+  ${offset 85}${color8}${exec playerctl metadata --format '{{status}}'} ${exec playerctl metadata --format '{{duration(position)}}'} / ${exec playerctl metadata --format '{{duration(mpris:length)}}'}${color}
+  ${eval $${image ${exec playerctl metadata mpris:artUrl|sed 's/file:\/\///g'} -s 80x80}}
+  ]];
+#+end_src
+**** System Information
+:PROPERTIES:
+:header-args: :tangle .config/conky/conky-system-ARCH-PEKAYON.conf :mkdirp t
+:END:
+#+caption: conky system information
+[[./assets/img/conky-system-2025-05-16_20-28.png][file:./assets/img/conky-system-2025-05-16_20-28.png]]
+
+I mostly use only builtin function provided by /conky/ itself rather than relying on other packages, the only external packages (beside the conky dependency) is [[https://archlinux.org/packages/extra/x86_64/xorg-xdpyinfo/][xorg-xdpyinfo]] (part of xorg I think?).
+#+begin_src lua
+  conky.config = {
+     color0 = '#073642',
+     color1 = '#dc322f',
+     color2 = '#859900',
+     color3 = '#b58900',
+     color4 = '#268bd2',
+     color5 = '#d33682',
+     color6 = '#2aa198',
+     color7 = '#eee8d5',
+     color8 = '#6c7c80',
+     color9 = '#dc322f',
+
+     default_color = '#fdf6e3',
+     font = 'FiraCodeNerdFontMono:pixelsize=8',
+     alignment = 'top_right',
+     use_xft = true,
+     update_interval = 1,
+     total_run_times = 0,
+     own_window = true,
+     own_window_transparent = false,
+     own_window_type = 'override',
+     own_window_class = 'Conky',
+     own_window_argb_visual = true,
+     own_window_argb_value = 0,
+     double_buffer = true,
+     draw_shades = false,
+     draw_outline = false,
+     draw_borders = false,
+     draw_graph_borders = true,
+     stippled_borders = 0,
+     border_width = 0,
+     xftalpha = 1.0,
+     gap_x = 10,
+     gap_y = 110,
+     text_buffer_size = 512,
+  };
+#+end_src
+
+#+begin_src lua
+    conky.text = [[
+  ${color4}$hr${color}
+  ${alignr}${offset 0}${color5}${font pixelsize=10}${nodename}${font}${color}
+  ${alignr}${color8}${tztime}${color}
+  ${alignr}${color8}${sysname} ${machine}${color} - ${exec lsb_release -ds | sed 's/"//g'} ${kernel}
+  ${alignr}${color8}Uptime:${color} ${uptime_short}
+  ${alignr}${color8}Resolution:${color} ${exec xdpyinfo | awk '/dimensions/{print $2}'}
+  ${alignr}${color8}Logged in users:${color} ${user_names}
+  ${color4}$hr${color}
+  ${alignr}${color5}${font pixelsize=10}CPU${font}${color}
+  ${alignr}${color8}CPU Clock Speed:${color}${freq_g} GHz
+  ${alignr}${color8}CPU 0 ${color2}${cpubar cpu0 6, 120}${color}
+  ${alignr}${color8}CPU 1 ${color2}${cpubar cpu1 6, 120}${color}
+  ${alignr}${color8}CPU 2 ${color2}${cpubar cpu2 6, 120}${color}
+  ${alignr}${color8}CPU 3 ${color2}${cpubar cpu3 6, 120}${color}
+  ${color4}$hr${color}
+  ${alignr}${color5}${font pixelsize=10}Processes${font}${color}
+  $alignr ${top name 1} ${color8}PID:${color} ${top pid 1} ${color8}CPU:${color} ${top cpu 1} ${color8}MEM:${color} ${top mem 1}
+  $alignr ${top name 2} ${color8}PID:${color} ${top pid 2} ${color8}CPU:${color} ${top cpu 2} ${color8}MEM:${color} ${top mem 2}
+  $alignr ${top name 3} ${color8}PID:${color} ${top pid 3} ${color8}CPU:${color} ${top cpu 3} ${color8}MEM:${color} ${top mem 3}
+  $alignr ${top name 4} ${color8}PID:${color} ${top pid 4} ${color8}CPU:${color} ${top cpu 4} ${color8}MEM:${color} ${top mem 4}
+  $alignr ${top name 5} ${color8}PID:${color} ${top pid 5} ${color8}CPU:${color} ${top cpu 5} ${color8}MEM:${color} ${top mem 5}
+  ${color4}$hr${color}
+  ${alignr}${color5}${font pixelsize=10}Memory${font}${color}
+  ${alignr}${color8}Ram:${color} ${memperc}%${color2} ${membar 5,120}${color}
+  ${alignr}${mem} / ${memmax}
+  ${alignr}${color8}Swap:${color} ${swapperc}% ${color2}${swapbar 5,120}${color}
+  ${alignr}${swap} / ${swapmax}
+  ${color4}$hr${color}
+  ${alignr}${color5}${font pixelsize=10}Network${font}${color}
+  ${if_up wlp0s20u5}${alignr}${color8}wlp0s20u5${color} Downspeed: ${downspeed wlp0s20u5}/s Upspeed: ${upspeed wlp0s20u5}/s
+  ${alignr}${color8}Bitrate:${color} ${wireless_bitrate wlp0s20u5} ${color8}Channel: ${color}${wireless_channel wlp0s20u5} ${color8}ESSID: ${color} ${wireless_essid wlp0s20u5}
+  ${color2}${downspeedgraph wlp0s20u5 32,155 104E8B 0077ff}${color} $alignr${color2}${upspeedgraph wlp0s20u5 32,155 104E8B 0077ff}${color}${endif}
+  ${if_existing /proc/net/route enp2s0}${alignr}${color8}enp2s0 Downspeed: ${downspeed enp2s0}/s Upspeed: ${upspeed enp2s0}${endif}
+  ${if_existing /proc/net/route enp2s0}${color2}${downspeedgraph enp2s0 32,155 104E8B 0077ff}${color} $alignr${color2}${upspeedgraph enp2s0 32,155 104E8B 0077ff}${color}${endif}
+  ${if_existing /proc/net/route enp3s0}${alignr}${color8}enp3s0 Downspeed: ${downspeed enp3s0}/s Upspeed: ${upspeed enp3s0}${endif}
+  ${if_existing /proc/net/route enp3s0}${color2}${downspeedgraph enp3s0 32,155 104E8B 0077ff}${color} $alignr${color2}${upspeedgraph enp3s0 32,155 104E8B 0077ff}${color}${endif}
+  ${if_existing /proc/net/route enp4s0}${alignr}${color8}enp4s0 Downspeed: ${downspeed enp4s0}/s Upspeed: ${upspeed enp4s0}${endif}
+  ${if_existing /proc/net/route enp4s0}${color2}${downspeedgraph enp4s0 32,155 104E8B 0077ff}${color} $alignr${color2}${upspeedgraph enp4s0 32,155 104E8B 0077ff}${color}${endif}
+  ${color4}$hr${color}
+    ]];
+#+end_src
+
+*** Dependencies
+- playerctl :: for media.
+- xdpyinfo :: for resolution.
+
 * Scripts
 :PROPERTIES:
 :header-args: :tangle .local/bin/conky-start
@@ -172,6 +327,13 @@ I mostly use only builtin function provided by /conky/ itself rather than relyin
 This script will be called from the window manager startup. As most of my scripts, the path will be =~/.local/bin/conky-start~=.
 #+begin_src sh :shebang #!/bin/sh :mkdirp t
   killall -USR1 conky
-  [ -e "${HOME}"/.config/conky/conky-mpris.conf ] && conky -c "${HOME}"/.config/conky/conky-mpris.conf &
-  [ -e "${HOME}"/.config/conky/conky-system.conf ] && conky -c "${HOME}"/.config/conky/conky-system.conf &
+
+  if [ -e "${HOME}"/.config/conky/conky-mpris-"${HOSTNAME}".conf ] &&
+         [ -e "${HOME}"/.config/conky/conky-system-"${HOSTNAME}".conf ]; then
+      conky -c "${HOME}"/.config/conky/conky-mpris-"${HOSTNAME}".conf &
+      conky -c "${HOME}"/.config/conky/conky-system-"${HOSTNAME}".conf &
+  else
+      [ -e "${HOME}"/.config/conky/conky-mpris.conf ] && conky -c "${HOME}"/.config/conky/conky-mpris.conf &
+      [ -e "${HOME}"/.config/conky/conky-system.conf ] && conky -c "${HOME}"/.config/conky/conky-system.conf &
+  fi
 #+end_src
