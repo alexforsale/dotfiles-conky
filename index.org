@@ -328,12 +328,19 @@ This script will be called from the window manager startup. As most of my script
 #+begin_src sh :shebang #!/bin/sh :mkdirp t
   killall -USR1 conky
 
-  if [ -e "${HOME}"/.config/conky/conky-mpris-"${HOSTNAME}".conf ] &&
-         [ -e "${HOME}"/.config/conky/conky-system-"${HOSTNAME}".conf ]; then
+  if [ -e "${HOME}"/.config/conky/conky-mpris-"${HOSTNAME}"-wayland.conf ]; then
+      conky -c "${HOME}"/.config/conky/conky-mpris-"${HOSTNAME}"-wayland.conf &
+  elif [ -e "${HOME}"/.config/conky/conky-mpris-"${HOSTNAME}".conf ]; then
       conky -c "${HOME}"/.config/conky/conky-mpris-"${HOSTNAME}".conf &
-      conky -c "${HOME}"/.config/conky/conky-system-"${HOSTNAME}".conf &
   else
       [ -e "${HOME}"/.config/conky/conky-mpris.conf ] && conky -c "${HOME}"/.config/conky/conky-mpris.conf &
+  fi
+
+  if [ -e "${HOME}"/.config/conky/conky-system-"${HOSTNAME}"-wayland.conf ]; then
+      conky -c "${HOME}"/.config/conky/conky-system-"${HOSTNAME}"-wayland.conf &
+  elif [ -e "${HOME}"/.config/conky/conky-system-"${HOSTNAME}".conf ]; then
+      conky -c "${HOME}"/.config/conky/conky-system-"${HOSTNAME}".conf &
+  else
       [ -e "${HOME}"/.config/conky/conky-system.conf ] && conky -c "${HOME}"/.config/conky/conky-system.conf &
   fi
 #+end_src
