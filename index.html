@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-28 Wed 08:20 -->
+<!-- 2025-06-08 Sun 14:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Conky Configuration Files</title>
@@ -28,38 +28,38 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb635b20">Conky Modules</a>
+<li><a href="#orgf903eac">Conky Modules</a>
 <ul>
-<li><a href="#org6f32cde">Conky MPRIS</a></li>
-<li><a href="#org3898573">System Information</a>
+<li><a href="#org6874d23">Conky MPRIS</a></li>
+<li><a href="#org1f8cef0">System Information</a>
 <ul>
-<li><a href="#org4e7e4ce">Dependencies</a></li>
+<li><a href="#orgac5b5d3">Dependencies</a></li>
 </ul>
 </li>
-<li><a href="#orga3e8cc3">Host specific configuration</a>
+<li><a href="#org15b65d2">Host specific configuration</a>
 <ul>
-<li><a href="#org9dd3e66">ARCH-PEKAYON</a></li>
-<li><a href="#org2d38116">Dependencies</a></li>
+<li><a href="#org4a015c2">ARCH-PEKAYON</a></li>
+<li><a href="#org34c573f">Dependencies</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgcd73ac9">Scripts</a></li>
+<li><a href="#org8a82bd1">Scripts</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb635b20" class="outline-2">
-<h2 id="orgb635b20">Conky Modules</h2>
-<div class="outline-text-2" id="text-orgb635b20">
+<div id="outline-container-orgf903eac" class="outline-2">
+<h2 id="orgf903eac">Conky Modules</h2>
+<div class="outline-text-2" id="text-orgf903eac">
 <p>
 Conky is highly customizable, with a bit of <i>Lua</i> knowledge you can create an intricate conky display. As usual, I start small, then build this up eventually.
 </p>
 </div>
-<div id="outline-container-org6f32cde" class="outline-3">
-<h3 id="org6f32cde">Conky MPRIS</h3>
-<div class="outline-text-3" id="text-org6f32cde">
+<div id="outline-container-org6874d23" class="outline-3">
+<h3 id="org6874d23">Conky MPRIS</h3>
+<div class="outline-text-3" id="text-org6874d23">
 
-<div id="org0f11bea" class="figure">
+<div id="org973caba" class="figure">
 <p><a href="./assets/img/conky-mpris-2025-05-16_20-28.png"><img src="./assets/img/conky-mpris-2025-05-16_20-28.png" alt="conky-mpris-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 1: </span>conky MPRIS</p>
@@ -121,11 +121,11 @@ ${eval $${image ${exec playerctl metadata mpris:artUrl|sed 's/file:\/\///g'} -s 
 </div>
 </div>
 </div>
-<div id="outline-container-org3898573" class="outline-3">
-<h3 id="org3898573">System Information</h3>
-<div class="outline-text-3" id="text-org3898573">
+<div id="outline-container-org1f8cef0" class="outline-3">
+<h3 id="org1f8cef0">System Information</h3>
+<div class="outline-text-3" id="text-org1f8cef0">
 
-<div id="org3b02063" class="figure">
+<div id="org1579fe0" class="figure">
 <p><a href="./assets/img/conky-system-2025-05-16_20-28.png"><img src="./assets/img/conky-system-2025-05-16_20-28.png" alt="conky-system-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 2: </span>conky system information</p>
@@ -216,9 +216,9 @@ ${color4}$hr${color}
 </div>
 </div>
 
-<div id="outline-container-org4e7e4ce" class="outline-4">
-<h4 id="org4e7e4ce">Dependencies</h4>
-<div class="outline-text-4" id="text-org4e7e4ce">
+<div id="outline-container-orgac5b5d3" class="outline-4">
+<h4 id="orgac5b5d3">Dependencies</h4>
+<div class="outline-text-4" id="text-orgac5b5d3">
 <dl class="org-dl">
 <dt>playerctl</dt><dd>for media.</dd>
 <dt>xdpyinfo</dt><dd>for resolution.</dd>
@@ -226,22 +226,22 @@ ${color4}$hr${color}
 </div>
 </div>
 </div>
-<div id="outline-container-orga3e8cc3" class="outline-3">
-<h3 id="orga3e8cc3">Host specific configuration</h3>
-<div class="outline-text-3" id="text-orga3e8cc3">
+<div id="outline-container-org15b65d2" class="outline-3">
+<h3 id="org15b65d2">Host specific configuration</h3>
+<div class="outline-text-3" id="text-org15b65d2">
 </div>
-<div id="outline-container-org9dd3e66" class="outline-4">
-<h4 id="org9dd3e66">ARCH-PEKAYON</h4>
-<div class="outline-text-4" id="text-org9dd3e66">
+<div id="outline-container-org4a015c2" class="outline-4">
+<h4 id="org4a015c2">ARCH-PEKAYON</h4>
+<div class="outline-text-4" id="text-org4a015c2">
 <p>
 This is my main PC at home.
 </p>
 </div>
 <ul class="org-ul">
-<li><a id="org6699994"></a>Conky MPRIS<br />
-<div class="outline-text-5" id="text-org6699994">
+<li><a id="org364b0f6"></a>Conky MPRIS<br />
+<div class="outline-text-5" id="text-org364b0f6">
 
-<div id="orgf6967c0" class="figure">
+<div id="org20e1a25" class="figure">
 <p><a href="./assets/img/conky-mpris-2025-05-16_20-28.png"><img src="./assets/img/conky-mpris-2025-05-16_20-28.png" alt="conky-mpris-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 3: </span>conky MPRIS</p>
@@ -303,10 +303,10 @@ ${eval $${image ${exec playerctl metadata mpris:artUrl|sed 's/file:\/\///g'} -s 
 </div>
 </div>
 </li>
-<li><a id="orgde42e1d"></a>System Information<br />
-<div class="outline-text-5" id="text-orgde42e1d">
+<li><a id="org94c668b"></a>System Information<br />
+<div class="outline-text-5" id="text-org94c668b">
 
-<div id="orgbf42893" class="figure">
+<div id="orgaa9d139" class="figure">
 <p><a href="./assets/img/conky-system-2025-05-16_20-28.png"><img src="./assets/img/conky-system-2025-05-16_20-28.png" alt="conky-system-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 4: </span>conky system information</p>
@@ -404,9 +404,9 @@ ${color4}$hr${color}
 </ul>
 </div>
 
-<div id="outline-container-org2d38116" class="outline-4">
-<h4 id="org2d38116">Dependencies</h4>
-<div class="outline-text-4" id="text-org2d38116">
+<div id="outline-container-org34c573f" class="outline-4">
+<h4 id="org34c573f">Dependencies</h4>
+<div class="outline-text-4" id="text-org34c573f">
 <dl class="org-dl">
 <dt>playerctl</dt><dd>for media.</dd>
 <dt>xdpyinfo</dt><dd>for resolution.</dd>
@@ -416,21 +416,28 @@ ${color4}$hr${color}
 </div>
 </div>
 
-<div id="outline-container-orgcd73ac9" class="outline-2">
-<h2 id="orgcd73ac9">Scripts</h2>
-<div class="outline-text-2" id="text-orgcd73ac9">
+<div id="outline-container-org8a82bd1" class="outline-2">
+<h2 id="org8a82bd1">Scripts</h2>
+<div class="outline-text-2" id="text-org8a82bd1">
 <p>
 This script will be called from the window manager startup. As most of my scripts, the path will be <code>~/.local/bin/conky-start~</code>.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">killall -USR1 conky
 
-<span style="color: #4169e1;">if</span> [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>.conf ] &amp;&amp;
-       [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>.conf ]; <span style="color: #4169e1;">then</span>
+<span style="color: #4169e1;">if</span> [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>-wayland.conf ]; <span style="color: #4169e1;">then</span>
+    conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>-wayland.conf &amp;
+<span style="color: #4169e1;">elif</span> [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>.conf ]; <span style="color: #4169e1;">then</span>
     conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>.conf &amp;
-    conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>.conf &amp;
 <span style="color: #4169e1;">else</span>
     [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris.conf ] &amp;&amp; conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-mpris.conf &amp;
+<span style="color: #4169e1;">fi</span>
+
+<span style="color: #4169e1;">if</span> [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>-wayland.conf ]; <span style="color: #4169e1;">then</span>
+    conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>-wayland.conf &amp;
+<span style="color: #4169e1;">elif</span> [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>.conf ]; <span style="color: #4169e1;">then</span>
+    conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system-<span style="color: #bc8f8f;">"${HOSTNAME}"</span>.conf &amp;
+<span style="color: #4169e1;">else</span>
     [ -e <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system.conf ] &amp;&amp; conky -c <span style="color: #bc8f8f;">"${HOME}"</span>/.config/conky/conky-system.conf &amp;
 <span style="color: #4169e1;">fi</span>
 </pre>
@@ -441,7 +448,7 @@ This script will be called from the window manager startup. As most of my script
 <div id="postamble" class="status">
 <p class="date">Date: 2025-05-10 Sat 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2025-05-28 Wed 08:20</p>
+<p class="date">Created: 2025-06-08 Sun 14:04</p>
 </div>
 </body>
 </html>
