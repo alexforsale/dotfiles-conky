@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-23 Mon 19:38 -->
+<!-- 2025-09-17 Wed 10:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Conky Configuration Files</title>
@@ -11,12 +11,14 @@
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/code-copy.css"/>
 <link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/code-copy.js"></script>
 <style> #content{max-width:1800px;}</style>
 <style> p{max-width:800px;}</style>
 <style> li{max-width:800px;}</style>
@@ -28,38 +30,38 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4928791">Conky Modules</a>
+<li><a href="#org4a9a4dd">Conky Modules</a>
 <ul>
-<li><a href="#org831953c">Conky MPRIS</a></li>
-<li><a href="#org01c6abc">System Information</a>
+<li><a href="#org3ba42e9">Conky MPRIS</a></li>
+<li><a href="#orga762d48">System Information</a>
 <ul>
-<li><a href="#orgb070ad3">Dependencies</a></li>
+<li><a href="#org9e2bd92">Dependencies</a></li>
 </ul>
 </li>
-<li><a href="#org404fbdb">Host specific configuration</a>
+<li><a href="#orgd0cb093">Host specific configuration</a>
 <ul>
-<li><a href="#org80b8b14">ARCH-PEKAYON</a></li>
-<li><a href="#org591e17f">Dependencies</a></li>
+<li><a href="#orgaa1e138">ARCH-PEKAYON</a></li>
+<li><a href="#org8388ffd">Dependencies</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orga0b4af6">Scripts</a></li>
+<li><a href="#org81593d6">Scripts</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4928791" class="outline-2">
-<h2 id="org4928791">Conky Modules</h2>
-<div class="outline-text-2" id="text-org4928791">
+<div id="outline-container-org4a9a4dd" class="outline-2">
+<h2 id="org4a9a4dd">Conky Modules</h2>
+<div class="outline-text-2" id="text-org4a9a4dd">
 <p>
 Conky is highly customizable, with a bit of <i>Lua</i> knowledge you can create an intricate conky display. As usual, I start small, then build this up eventually.
 </p>
 </div>
-<div id="outline-container-org831953c" class="outline-3">
-<h3 id="org831953c">Conky MPRIS</h3>
-<div class="outline-text-3" id="text-org831953c">
+<div id="outline-container-org3ba42e9" class="outline-3">
+<h3 id="org3ba42e9">Conky MPRIS</h3>
+<div class="outline-text-3" id="text-org3ba42e9">
 
-<div id="orgf6fa3bf" class="figure">
+<div id="org6c94b93" class="figure">
 <p><a href="./assets/img/conky-mpris-2025-05-16_20-28.png"><img src="./assets/img/conky-mpris-2025-05-16_20-28.png" alt="conky-mpris-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 1: </span>conky MPRIS</p>
@@ -121,11 +123,11 @@ ${eval $${image ${exec playerctl metadata mpris:artUrl|sed 's/file:\/\///g'} -s 
 </div>
 </div>
 </div>
-<div id="outline-container-org01c6abc" class="outline-3">
-<h3 id="org01c6abc">System Information</h3>
-<div class="outline-text-3" id="text-org01c6abc">
+<div id="outline-container-orga762d48" class="outline-3">
+<h3 id="orga762d48">System Information</h3>
+<div class="outline-text-3" id="text-orga762d48">
 
-<div id="orgc15a812" class="figure">
+<div id="org8e2d6ff" class="figure">
 <p><a href="./assets/img/conky-system-2025-05-16_20-28.png"><img src="./assets/img/conky-system-2025-05-16_20-28.png" alt="conky-system-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 2: </span>conky system information</p>
@@ -216,9 +218,9 @@ ${color4}$hr${color}
 </div>
 </div>
 
-<div id="outline-container-orgb070ad3" class="outline-4">
-<h4 id="orgb070ad3">Dependencies</h4>
-<div class="outline-text-4" id="text-orgb070ad3">
+<div id="outline-container-org9e2bd92" class="outline-4">
+<h4 id="org9e2bd92">Dependencies</h4>
+<div class="outline-text-4" id="text-org9e2bd92">
 <dl class="org-dl">
 <dt>playerctl</dt><dd>for media.</dd>
 <dt>xdpyinfo</dt><dd>for resolution.</dd>
@@ -226,22 +228,22 @@ ${color4}$hr${color}
 </div>
 </div>
 </div>
-<div id="outline-container-org404fbdb" class="outline-3">
-<h3 id="org404fbdb">Host specific configuration</h3>
-<div class="outline-text-3" id="text-org404fbdb">
+<div id="outline-container-orgd0cb093" class="outline-3">
+<h3 id="orgd0cb093">Host specific configuration</h3>
+<div class="outline-text-3" id="text-orgd0cb093">
 </div>
-<div id="outline-container-org80b8b14" class="outline-4">
-<h4 id="org80b8b14">ARCH-PEKAYON</h4>
-<div class="outline-text-4" id="text-org80b8b14">
+<div id="outline-container-orgaa1e138" class="outline-4">
+<h4 id="orgaa1e138">ARCH-PEKAYON</h4>
+<div class="outline-text-4" id="text-orgaa1e138">
 <p>
 This is my main PC at home.
 </p>
 </div>
 <ul class="org-ul">
-<li><a id="org39ae3fa"></a>Conky MPRIS<br />
-<div class="outline-text-5" id="text-org39ae3fa">
+<li><a id="orgc9a9cea"></a>Conky MPRIS<br />
+<div class="outline-text-5" id="text-orgc9a9cea">
 
-<div id="org2ce690c" class="figure">
+<div id="org5cef269" class="figure">
 <p><a href="./assets/img/conky-mpris-2025-05-16_20-28.png"><img src="./assets/img/conky-mpris-2025-05-16_20-28.png" alt="conky-mpris-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 3: </span>conky MPRIS</p>
@@ -303,10 +305,10 @@ ${eval $${image ${exec playerctl metadata mpris:artUrl|sed 's/file:\/\///g'} -s 
 </div>
 </div>
 </li>
-<li><a id="orgd583961"></a>Conky MPRIS Wayland<br />
-<div class="outline-text-5" id="text-orgd583961">
+<li><a id="org17bab26"></a>Conky MPRIS Wayland<br />
+<div class="outline-text-5" id="text-org17bab26">
 
-<div id="org21f86d7" class="figure">
+<div id="org8172ab5" class="figure">
 <p><a href="./assets/img/conky-mpris-2025-05-16_20-28.png"><img src="./assets/img/conky-mpris-2025-05-16_20-28.png" alt="conky-mpris-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 4: </span>conky MPRIS</p>
@@ -371,10 +373,10 @@ ${eval $${image ${exec playerctl metadata mpris:artUrl|sed 's/file:\/\///g'} -s 
 </div>
 </div>
 </li>
-<li><a id="org99fccb1"></a>System Information<br />
-<div class="outline-text-5" id="text-org99fccb1">
+<li><a id="org3007e3e"></a>System Information<br />
+<div class="outline-text-5" id="text-org3007e3e">
 
-<div id="orgc394be4" class="figure">
+<div id="orgf499bb0" class="figure">
 <p><a href="./assets/img/conky-system-2025-05-16_20-28.png"><img src="./assets/img/conky-system-2025-05-16_20-28.png" alt="conky-system-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 5: </span>conky system information</p>
@@ -470,10 +472,10 @@ ${color4}$hr${color}
 </div>
 </li>
 
-<li><a id="orgb601664"></a>System Information Wayland<br />
-<div class="outline-text-5" id="text-orgb601664">
+<li><a id="org53dc557"></a>System Information Wayland<br />
+<div class="outline-text-5" id="text-org53dc557">
 
-<div id="orgaf04680" class="figure">
+<div id="org33b4f19" class="figure">
 <p><a href="./assets/img/conky-system-2025-05-16_20-28.png"><img src="./assets/img/conky-system-2025-05-16_20-28.png" alt="conky-system-2025-05-16_20-28.png" /></a>
 </p>
 <p><span class="figure-number">Figure 6: </span>conky system information</p>
@@ -578,9 +580,9 @@ ${color4}$hr${color}
 </ul>
 </div>
 
-<div id="outline-container-org591e17f" class="outline-4">
-<h4 id="org591e17f">Dependencies</h4>
-<div class="outline-text-4" id="text-org591e17f">
+<div id="outline-container-org8388ffd" class="outline-4">
+<h4 id="org8388ffd">Dependencies</h4>
+<div class="outline-text-4" id="text-org8388ffd">
 <dl class="org-dl">
 <dt>playerctl</dt><dd>for media.</dd>
 <dt>xdpyinfo</dt><dd>for resolution.</dd>
@@ -590,9 +592,9 @@ ${color4}$hr${color}
 </div>
 </div>
 
-<div id="outline-container-orga0b4af6" class="outline-2">
-<h2 id="orga0b4af6">Scripts</h2>
-<div class="outline-text-2" id="text-orga0b4af6">
+<div id="outline-container-org81593d6" class="outline-2">
+<h2 id="org81593d6">Scripts</h2>
+<div class="outline-text-2" id="text-org81593d6">
 <p>
 This script will be called from the window manager startup. As most of my scripts, the path will be <code>~/.local/bin/conky-start~</code>.
 </p>
@@ -627,7 +629,7 @@ This script will be called from the window manager startup. As most of my script
 <div id="postamble" class="status">
 <p class="date">Date: 2025-05-10 Sat 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2025-06-23 Mon 19:38</p>
+<p class="date">Created: 2025-09-17 Wed 10:12</p>
 </div>
 </body>
 </html>
